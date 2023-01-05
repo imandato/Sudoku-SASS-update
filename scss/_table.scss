@@ -1,0 +1,33 @@
+@import "./variables";
+
+@mixin table{
+    .table{
+        border: 6px solid $black-color;
+        border-collapse:collapse; 
+        margin-left:auto;
+        margin-right:auto;
+        padding: $main-padding-shadow;
+        max-width: $full-width-height;
+        max-height: $full-width-height;
+        box-shadow: $main-padding-shadow;
+    }
+    
+    #easy-table{
+        display: block;
+    };
+        
+    #medium-table{
+        display: none;
+    };
+        
+    #hard-table{
+        display: none;
+    };
+    
+    td{
+        border: 1px solid $black-color; 
+        padding:0;
+        width: $table-square-size;
+        height: $table-square-size;
+    }
+}

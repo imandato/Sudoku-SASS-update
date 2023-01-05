@@ -1,0 +1,33 @@
+@import "./variables";
+
+@mixin input{
+    input {
+        display:block;
+        width:$full-width-height;
+        height: $full-width-height;
+        border-style: none;
+        font-size: 30px;
+        font-weight: 500;
+        text-align: center;
+    
+        &:focus{
+            outline: none;
+            background-color: $focus-hover-color;
+        }
+    
+        &:hover{
+            background-color: $focus-hover-color;
+        }
+    
+        &::-webkit-outer-spin-button, ::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+      
+    .readonly{
+        font-size: 30px;
+        font-weight: 700;
+    }
+      
+}

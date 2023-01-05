@@ -1,0 +1,21 @@
+@import "./mixins";
+@import "./variables";
+
+@mixin levels{
+    .levels{
+        @include flex-center(){
+            padding-top: 25px;
+        }
+    }
+    
+    .levelButton{
+        @include button-format(){
+            width: 90px;
+            height: 35px;
+        }
+    }
+    
+    #easy-button{
+        background-color: $background-color
+    }
+}

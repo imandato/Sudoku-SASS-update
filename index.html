@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container1"> <!--container to hold table and rules containers-->
+        <div>
+            <h1>Sudoku</h1>
+            <!-- 3 tables to create the 3 different sudoku boards (easy, medium, hard) -->
+            <table class="table" id="easy-table"> 
+                <tr> <!--row 1-->
+                    <!-- StackOverflow: https://stackoverflow.com/questions/574941/best-way-to-track-onchange-as-you-type-in-input-type-text -->
+                    <!-- Using oninput to alert the javascript to run the function whenever the input is changed by the user -->
+                    <!-- W3 Schools: https://www.w3schools.com/tags/att_input_readonly.asp -->
+                    <!-- Used this readonly code for the values that iI didn't want to be inputted by a user so that the input value would still be added to the array -->
+                    <td><input class="userinput box1" id="easy-input-1" type="text"  value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box2" id="easy-input-2" type="text"  value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box3" id="easy-input-3" type="text"  value = "2" readonly></td>
+                    <td><input class="userinput box4" id="easy-input-4" type="text"  value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box5" id="easy-input-5" type="text"  value = "3" readonly></td>
+                    <td><input class="readonly box6" id="easy-input-6" type="text"  value = "1" readonly></td>
+                    <td><input class="readonly box7" id="easy-input-7" type="text"  value = "9" readonly></td>
+                    <td><input class="readonly box8" id="easy-input-8" type="text"  value = "4" readonly></td>
+                    <td><input class="userinput box9" id="easy-input-9" type="text"  value = "" maxlength="1" oninput="getValueEasy()"></td>
+                </tr>
+                <tr> <!--row 2-->
+                    <td><input class="userinput box10" id="easy-input-10" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box11" id="easy-input-11" type="text" value = "8" readonly></td>
+                    <td><input class="userinput box12" id="easy-input-12" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box13" id="easy-input-13" type="text" value = "9" readonly></td>
+                    <td><input class="readonly box14" id="easy-input-14" type="text" value = "6" readonly></td>
+                    <td><input class="userinput box15" id="easy-input-15" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box16" id="easy-input-16" type="text" value = "3" readonly></td>
+                    <td><input class="userinput box17" id="easy-input-17" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box18" id="easy-input-18" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                </tr>
+                <tr> <!--row 3-->
+                    <td><input class="userinput box19" id="easy-input-19" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box20" id="easy-input-20" type="text" value = "1" readonly></td>
+                    <td><input class="readonly box21" id="easy-input-21" type="text" value = "3" readonly></td>
+                    <td><input class="userinput box22" id="easy-input-22" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box23" id="easy-input-23" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box24" id="easy-input-24" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box25" id="easy-input-25" type="text" value = "6" readonly></td>
+                    <td><input class="userinput box26" id="easy-input-26" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box27" id="easy-input-27" type="text" value = "2" readonly></td>
+                </tr>
+                <tr> <!--row 4-->
+                    <td><input class="readonly box28" id="easy-input-28" type="text" value = "1" readonly></td>
+                    <td><input class="readonly box29" id="easy-input-29" type="text" value = "7" readonly></td>
+                    <td><input class="userinput box30" id="easy-input-30" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box31" id="easy-input-31" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box32" id="easy-input-32" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box33" id="easy-input-33" type="text" value = "6" readonly></td>
+                    <td><input class="readonly box34" id="easy-input-34" type="text" value = "4" readonly></td>
+                    <td><input class="userinput box35" id="easy-input-35" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box36" id="easy-input-36" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                </tr>
+                <tr> <!--row 5-->
+                    <td><input class="readonly box37" id="easy-input-37" type="text" value = "3" readonly></td>
+                    <td><input class="userinput box38" id="easy-input-38" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box39" id="easy-input-39" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box40" id="easy-input-40" type="text" value = "5" readonly></td>
+                    <td><input class="readonly box41" id="easy-input-41" type="text" value = "4" readonly></td>
+                    <td><input class="readonly box42" id="easy-input-42" type="text" value = "8" readonly></td>
+                    <td><input class="userinput box43" id="easy-input-43" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box44" id="easy-input-44" type="text" value = "6" readonly></td>
+                    <td><input class="userinput box45" id="easy-input-45" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                </tr>
+                <tr> <!--row 6-->
+                    <td><input class="readonly box46" id="easy-input-46" type="text" value = "6" readonly></td>
+                    <td><input class="userinput box47" id="easy-input-47" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box48" id="easy-input-48" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box49" id="easy-input-49" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box50" id="easy-input-50" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box51" id="easy-input-51" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box52" id="easy-input-52" type="text" value = "2" readonly></td>
+                    <td><input class="readonly box53" id="easy-input-53" type="text" value = "9" readonly></td>
+                    <td><input class="readonly box54" id="easy-input-54" type="text" value = "8" readonly></td>
+                </tr>
+                <tr> <!--row 7-->
+                    <td><input class="userinput box55" id="easy-input-55" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box56" id="easy-input-56" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box57" id="easy-input-57" type="text" value = "4" readonly></td>
+                    <td><input class="readonly box58" id="easy-input-58" type="text" value = "3" readonly></td>
+                    <td><input class="readonly box59" id="easy-input-59" type="text" value = "7" readonly></td>
+                    <td><input class="readonly box60" id="easy-input-60" type="text" value = "5" readonly></td>
+                    <td><input class="userinput box61" id="easy-input-61" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box62" id="easy-input-62" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box63" id="easy-input-63" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                </tr>
+                <tr> <!--row 8-->
+                    <td><input class="readonly box64" id="easy-input-64" type="text" value = "7" readonly></td>
+                    <td><input class="userinput box65" id="easy-input-65" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box66" id="easy-input-66" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box67" id="easy-input-67" type="text" value = "1" readonly></td>
+                    <td><input class="userinput box68" id="easy-input-68" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box69" id="easy-input-69" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box70" id="easy-input-70" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box71" id="easy-input-71" type="text" value = "3" readonly></td>
+                    <td><input class="readonly box72" id="easy-input-72" type="text" value = "9" readonly></td>
+                </tr>
+                <tr> <!--row 9-->
+                    <td><input class="userinput box73" id="easy-input-73" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box74" id="easy-input-74" type="text" value = "3" readonly></td>
+                    <td><input class="readonly box75" id="easy-input-75" type="text" value = "1" readonly></td>
+                    <td><input class="userinput box76" id="easy-input-76" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box77" id="easy-input-77" type="text" value = "8" readonly></td>
+                    <td><input class="userinput box78" id="easy-input-78" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box79" id="easy-input-79" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="userinput box80" id="easy-input-80" type="text" value = "" maxlength="1" oninput="getValueEasy()"></td>
+                    <td><input class="readonly box81" id="easy-input-81" type="text" value = "4" readonly></td>
+                </tr>
+            </table>
+
+            <table class="table" id="medium-table">
+                <tr> <!--row 1-->
+                    <!-- StackOverflow: https://stackoverflow.com/questions/574941/best-way-to-track-onchange-as-you-type-in-input-type-text -->
+                    <!-- Using oninput to alert the javascript to run the function whenever the input is changed by the user -->
+                    <!-- W3 Schools: https://www.w3schools.com/tags/att_input_readonly.asp -->
+                    <!-- Used this readonly code for the values that iI didn't want to be inputted by a user so that the input value would still be added to the array -->
+                    <td><input class="userinput box1" id="medium-input-1" type="text"  value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box2" id="medium-input-2" type="text"  value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box3" id="medium-input-3" type="text"  value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box4" id="medium-input-4" type="text"  value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box5" id="medium-input-5" type="text"  value = "6" readonly></td>
+                    <td><input class="userinput box6" id="medium-input-6" type="text"  value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box7" id="medium-input-7" type="text"  value = "2" readonly></td>
+                    <td><input class="userinput box8" id="medium-input-8" type="text"  value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box9" id="medium-input-9" type="text"  value = "" maxlength="1" oninput="getValueMedium()"></td>
+                </tr>
+                <tr><!--row 2-->
+                    <td><input class="readonly box10" id="medium-input-10" type="text" value = "8" readonly></td>
+                    <td><input class="userinput box11" id="medium-input-11" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box12" id="medium-input-12" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box13" id="medium-input-13" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box14" id="medium-input-14" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box15" id="medium-input-15" type="text" value = "5" readonly></td>
+                    <td><input class="userinput box16" id="medium-input-16" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box17" id="medium-input-17" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box18" id="medium-input-18" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                </tr>
+                <tr><!--row 3-->
+                    <td><input class="userinput box19" id="medium-input-19" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box20" id="medium-input-20" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box21" id="medium-input-21" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box22" id="medium-input-22" type="text" value = "7" readonly></td>
+                    <td><input class="readonly box23" id="medium-input-23" type="text" value = "2" readonly></td>
+                    <td><input class="readonly box24" id="medium-input-24" type="text" value = "8" readonly></td>
+                    <td><input class="userinput box25" id="medium-input-25" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box26" id="medium-input-26" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box27" id="medium-input-27" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                </tr>
+                <tr><!--row 4-->
+                    <td><input class="userinput box28" id="medium-input-28" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box29" id="medium-input-29" type="text" value = "7" readonly></td>
+                    <td><input class="userinput box30" id="medium-input-30" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box31" id="medium-input-31" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box32" id="medium-input-32" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box33" id="medium-input-33" type="text" value = "2" readonly></td>
+                    <td><input class="userinput box34" id="medium-input-34" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box35" id="medium-input-35" type="text" value = "8" readonly></td>
+                    <td><input class="userinput box36" id="medium-input-36" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                </tr>
+                <tr><!--row 5-->
+                    <td><input class="userinput box37" id="medium-input-37" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box38" id="medium-input-38" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box39" id="medium-input-39" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box40" id="medium-input-40" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box41" id="medium-input-41" type="text" value = "3" readonly></td>
+                    <td><input class="userinput box42" id="medium-input-42" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box43" id="medium-input-43" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box44" id="medium-input-44" type="text" value = "4" readonly></td>
+                    <td><input class="userinput box45" id="medium-input-45" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                </tr>
+                <tr><!--row 6-->
+                    <td><input class="readonly box46" id="medium-input-46" type="text" value = "1" readonly></td>
+                    <td><input class="userinput box47" id="medium-input-47" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box48" id="medium-input-48" type="text" value = "2" readonly></td>
+                    <td><input class="readonly box49" id="medium-input-49" type="text" value = "4" readonly></td>
+                    <td><input class="readonly box50" id="medium-input-50" type="text" value = "5" readonly></td>
+                    <td><input class="userinput box51" id="medium-input-51" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box52" id="medium-input-52" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box53" id="medium-input-53" type="text" value = "6" readonly></td>
+                    <td><input class="userinput box54" id="medium-input-54" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                </tr>
+                <tr> <!--row 7-->
+                    <td><input class="userinput box55" id="medium-input-55" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box56" id="medium-input-56" type="text" value = "3" readonly></td>
+                    <td><input class="readonly box57" id="medium-input-57" type="text" value = "1" readonly></td>
+                    <td><input class="userinput box58" id="medium-input-58" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box59" id="medium-input-59" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box60" id="medium-input-60" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box61" id="medium-input-61" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box62" id="medium-input-62" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box63" id="medium-input-63" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                </tr>
+                <tr><!--row 8-->
+                    <td><input class="userinput box64" id="medium-input-64" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box65" id="medium-input-65" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box66" id="medium-input-66" type="text" value = "4" readonly></td>
+                    <td><input class="userinput box67" id="medium-input-67" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box68" id="medium-input-68" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box69" id="medium-input-69" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box70" id="medium-input-70" type="text" value = "3" readonly></td>
+                    <td><input class="userinput box71" id="medium-input-71" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box72" id="medium-input-72" type="text" value = "9" readonly></td>
+                </tr>
+                <tr><!--row 9-->
+                    <td><input class="readonly box73" id="medium-input-73" type="text" value = "5" readonly></td>
+                    <td><input class="userinput box74" id="medium-input-74" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box75" id="medium-input-75" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box76" id="medium-input-76" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box77" id="medium-input-77" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box78" id="medium-input-78" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="readonly box79" id="medium-input-79" type="text" value = "4" readonly></td>
+                    <td><input class="userinput box80" id="medium-input-80" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                    <td><input class="userinput box81" id="medium-input-81" type="text" value = "" maxlength="1" oninput="getValueMedium()"></td>
+                </tr>
+            </table>
+
+            <table class="table" id="hard-table">
+                <tr> <!--row 1-->
+                    <!-- StackOverflow: https://stackoverflow.com/questions/574941/best-way-to-track-onchange-as-you-type-in-input-type-text -->
+                    <!-- Using oninput to alert the javascript to run the function whenever the input is changed by the user -->
+                    <!-- W3 Schools: https://www.w3schools.com/tags/att_input_readonly.asp -->
+                    <!-- Used this readonly code for the values that iI didn't want to be inputted by a user so that the input value would still be added to the array -->
+                    <td><input class="userinput box1" id="hard-input-1" type="text"  value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box2" id="hard-input-2" type="text"  value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box3" id="hard-input-3" type="text"  value = "7" readonly></td>
+                    <td><input class="userinput box4" id="hard-input-4" type="text"  value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box5" id="hard-input-5" type="text"  value = "3" readonly></td>
+                    <td><input class="userinput box6" id="hard-input-6" type="text"  value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box7" id="hard-input-7" type="text"  value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box8" id="hard-input-8" type="text"  value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box9" id="hard-input-9" type="text"  value = "4" readonly></td>
+                </tr>
+                <tr> <!--row 2-->
+                    <td><input class="userinput box10" id="hard-input-10" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box11" id="hard-input-11" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box12" id="hard-input-12" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box13" id="hard-input-13" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box14" id="hard-input-14" type="text" value = "7" readonly></td>
+                    <td><input class="userinput box15" id="hard-input-15" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box16" id="hard-input-16" type="text" value = "1" readonly></td>
+                    <td><input class="userinput box17" id="hard-input-17" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box18" id="hard-input-18" type="text" value = "9" readonly></td>
+                </tr>
+                <tr> <!--row 3-->
+                    <td><input class="userinput box19" id="hard-input-19" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box20" id="hard-input-20" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box21" id="hard-input-21" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box22" id="hard-input-22" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box23" id="hard-input-23" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box24" id="hard-input-24" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box25" id="hard-input-25" type="text" value = "6" readonly></td>
+                    <td><input class="userinput box26" id="hard-input-26" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box27" id="hard-input-27" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                </tr>
+                <tr> <!--row 4-->
+                    <td><input class="readonly box28" id="hard-input-28" type="text" value = "7" readonly></td>
+                    <td><input class="userinput box29" id="hard-input-29" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box30" id="hard-input-30" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box31" id="hard-input-31" type="text" value = "3" readonly></td>
+                    <td><input class="readonly box32" id="hard-input-32" type="text" value = "5" readonly></td>
+                    <td><input class="userinput box33" id="hard-input-33" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box34" id="hard-input-34" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box35" id="hard-input-35" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box36" id="hard-input-36" type="text" value = "8" readonly></td>
+                </tr>
+                <tr> <!--row 5-->
+                    <td><input class="readonly box37" id="hard-input-37" type="text" value = "1" readonly></td>
+                    <td><input class="userinput box38" id="hard-input-38" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box39" id="hard-input-39" type="text" value = "4" readonly></td>
+                    <td><input class="readonly box40" id="hard-input-40" type="text" value = "8" readonly></td>
+                    <td><input class="userinput box41" id="hard-input-41" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box42" id="hard-input-42" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box43" id="hard-input-43" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box44" id="hard-input-44" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box45" id="hard-input-45" type="text" value = "6" readonly></td>
+                </tr>
+                <tr> <!--row 6-->
+                    <td><input class="readonly box46" id="hard-input-46" type="text" value = "9" readonly></td>
+                    <td><input class="userinput box47" id="hard-input-47" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box48" id="hard-input-48" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box49" id="hard-input-49" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box50" id="hard-input-50" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box51" id="hard-input-51" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box52" id="hard-input-52" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box53" id="hard-input-53" type="text" value = "5" readonly></td>
+                    <td><input class="userinput box54" id="hard-input-54" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                </tr>
+                <tr> <!--row 7-->
+                    <td><input class="readonly box55" id="hard-input-55" type="text" value = "8" readonly></td>
+                    <td><input class="userinput box56" id="hard-input-56" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box57" id="hard-input-57" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box58" id="hard-input-58" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box59" id="hard-input-59" type="text" value = "9" readonly></td>
+                    <td><input class="userinput box60" id="hard-input-60" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box61" id="hard-input-61" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box62" id="hard-input-62" type="text" value = "2" readonly></td>
+                    <td><input class="userinput box63" id="hard-input-63" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                </tr>
+                <tr> <!--row 8-->
+                    <td><input class="userinput box64" id="hard-input-64" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box65" id="hard-input-65" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box66" id="hard-input-66" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box67" id="hard-input-67" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box68" id="hard-input-68" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box69" id="hard-input-69" type="text" value = "3" readonly></td>
+                    <td><input class="userinput box70" id="hard-input-70" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box71" id="hard-input-71" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box72" id="hard-input-72" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                </tr>
+                <tr> <!--row 9-->
+                    <td><input class="userinput box73" id="hard-input-73" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="readonly box74" id="hard-input-74" type="text" value = "4" readonly></td>
+                    <td><input class="readonly box75" id="hard-input-75" type="text" value = "1" readonly></td>
+                    <td><input class="readonly box76" id="hard-input-76" type="text" value = "2" readonly></td>
+                    <td><input class="userinput box77" id="hard-input-77" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box78" id="hard-input-78" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box79" id="hard-input-79" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box80" id="hard-input-80" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                    <td><input class="userinput box81" id="hard-input-81" type="text" value = "" maxlength="1" oninput="getValueHard()"></td>
+                </tr>
+            </table>
+
+            <div class="levels"> <!--container holding buttons changing the levels of the game-->
+                <Button class="levelButton" id="easy-button">Easy</Button>
+                <Button class="levelButton" id="medium-button">Medium</Button>
+                <Button class="levelButton" id="hard-button">Hard</Button>
+                <!-- <a href="./index.html"> <button class="levelButton easyButton">Easy</button></a>
+                <a href="./medium.html"> <button class="levelButton">Medium</button></a>
+                <a href="./hard.html"> <button class="levelButton">Hard</button></a> -->
+            </div>
+        </div>
+        
+        <div class="container2"> <!--container holding the rules and the submit and clear board buttons-->
+            <div class="rules-container">
+                <div class="spacing"></div>
+                <div class="ruletitle">Rules</div>
+                <div class="rules">
+                    Each row must contain the numbers from 1 to 9, without repetitions.
+                </div>
+                <div class="rules">
+                    Each column must contain the numbers from 1 to 9, without repetitions.
+                </div>
+                <div class="rules">
+                    The numbers can only occur once per block.
+                </div>
+                <div class="rules">
+                    The sum of every individual row, column and block must be equal to 45.
+                </div>
+            </div>
+            <div class="button-container">
+                <div class="submit">
+                    <button class="submit-button" id="submit-button">Submit Answer</button>
+                </div>
+                <div class="clear">
+                    <button id="clear-board">Clear Board</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--W3 Schools: https://www.w3schools.com/howto/howto_css_modals.asp -->
+    <!--used this website for help with modal close button/general layout-->
+    <div class="modal" id="modal"> <!--modal that shows the try again/you won messages-->
+        <div class="modal-content">
+            <div id="message"></div>
+            <span class="close-button">&times;</span>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

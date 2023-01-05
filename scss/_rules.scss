@@ -1,0 +1,31 @@
+@import "./variables";
+
+@mixin rules{
+    .spacing{
+        height: 25px;
+    }
+    
+    .ruletitle{
+        @include flex-center(){
+            font-family: $main-font;
+            font-size: 20px;
+            font-weight: $bold-font-weight;
+        }
+    };
+    
+    .rulecontainer{
+        @include flex-center(){
+            width: 180px;
+        }
+    }
+    
+    .rules{
+        @include flex-center(){
+            align-items: center;
+            font-size: 20px;
+            font-family: $main-font;
+            text-align: center;
+            padding: 20px;
+        }
+    }
+}

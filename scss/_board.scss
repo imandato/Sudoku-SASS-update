@@ -1,0 +1,12 @@
+@import "./variables";
+
+
+@mixin board{
+    $boxes: box1,box2,box3,box10,box11,box12,box19,box20,box21,box7,box8,box9,box16,box17,box18,box25,box26,box27,box31,box32,box33,box40,box41,box42,box49,box50,box51,box55,box56,box57,box64,box65,box66,box73,box74,box75,box61,box62,box63,box70,box71,box72,box79,box80,box81;
+
+    @each $box in $boxes {
+        .#{$box}{
+            background-color: $background-color;
+        }
+    }
+}

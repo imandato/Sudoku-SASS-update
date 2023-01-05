@@ -1,0 +1,39 @@
+@import "./variables";
+
+@mixin modal{
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: $full-width-height; 
+        height: $full-width-height; 
+        background-color: $modal-background-color; 
+    }
+      
+    .modal-content {
+        background-color: $modal-content-color;
+        margin: 15% auto; 
+        padding: 20px;
+        border: 1px solid $black-color;
+        border-radius: 10px;
+        width: 400px;
+        max-width: 80%; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 30px;
+        font-weight: $bold-font-weight;
+        font-family: $main-font;
+    }
+      
+    .close-button {
+        color: $black-color;
+        float: right;
+        font-size: 28px;
+        font-weight: $bold-font-weight;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

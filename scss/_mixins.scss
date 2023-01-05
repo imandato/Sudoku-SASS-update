@@ -1,0 +1,21 @@
+@mixin button-format{
+    border-radius: 3px;
+    border-color: $button-border;
+    background-color: $button-color;
+    box-shadow: $main-padding-shadow;
+    font-weight: $bold-font-weight;
+    @content
+};
+
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    @content
+};
+
+@mixin flex-around{
+    display: flex;
+    justify-content: space-around;
+    @content
+}

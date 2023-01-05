@@ -1,0 +1,23 @@
+@import "./mixins";
+
+@mixin buttons{
+
+    .clear, .submit{
+        @include flex-around()
+    }; 
+
+    .submit-button{
+        @include button-format(){
+            width: 186px;
+            height: 50px;
+        }
+    };
+
+    #clear-board{
+        @include button-format(){
+            width: 186px;
+            height: 22px;
+        }
+    };
+
+}
